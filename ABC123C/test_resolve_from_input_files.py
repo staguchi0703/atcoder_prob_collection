@@ -11,6 +11,8 @@ class TestClass(unittest.TestCase):
         resolve()
         sys.stdout.seek(0)
         out = sys.stdout.read()[:-1]
+        print('-----------')
+        print(out)
         sys.stdout, sys.stdin = stdout, stdin
         self.assertEqual(out, output)
 
