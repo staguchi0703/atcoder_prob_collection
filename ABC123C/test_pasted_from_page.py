@@ -16,8 +16,6 @@ class TestClass(unittest.TestCase):
         sys.stdout.seek(0)
         out = sys.stdout.read()[:-1]
         sys.stdout, sys.stdin = stdout, stdin
-        print('-----------')
-        print(out)
         self.assertEqual(out, output)
     def test_入力例_1(self):
         input = """5
@@ -48,5 +46,4 @@ class TestClass(unittest.TestCase):
         self.assertIO(input, output)
 
 if __name__ == "__main__":
-    unittest.main()    
-
+    unittest.main()
