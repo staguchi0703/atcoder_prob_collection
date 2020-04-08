@@ -31,10 +31,10 @@ ssssppr"""
         output = """211"""
         self.assertIO(input, output)
     def test_入力例_3(self):
-        input = """30 5
-325 234 123
-rspsspspsrpspsppprpsprpssprpsr"""
-        output = """4996"""
+        input = """4 3
+5172 4873 5936
+rrpr"""
+        output = """16745"""
         self.assertIO(input, output)
 
 if __name__ == "__main__":

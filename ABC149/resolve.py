@@ -5,8 +5,7 @@ def resolve():
     N, K = [int(item) for item in input().split()]
     R, S, P= [int(item) for item in input().split()]
     T = input()
-    path_num = min(K, N-K)
-    memo = [1 for _ in range(path_num)]
+    memo = [1 for _ in range(K)]
     def point_chk(s):
         if s == 'r':
             return P
@@ -22,20 +21,14 @@ def resolve():
     for i, s in enumerate(T):
         if i < K:
             max_point += point_chk(s)
-            memo[i%path_num] = s
+            memo[i%K] = s
         else:
-            if s != T[i-K]:
-                max_point += point_chk(s)
-                memo[i%path_num] = s
+            if s == memo[i%K]:
+                memo[i%K] = 1
             else:
-                temp = memo[(i-1)%path_num]
-                if temp == s:
-                    memo[i%path_num] = s
-                else:
-                    memo[i%path_num] = s
-                    max_point += point_chk(s)
-
-        print(i, s, memo, max_point)
+                memo[i%K] = s
+                max_point += point_chk(s)
+        # print(i, s, memo, max_point)
     
     print(max_point)
 
