@@ -1,12 +1,9 @@
-#
-from resolve import resolve
-####################################
-####################################
-# 以下にプラグインの内容をペーストする
-#  
+
 import sys
 from io import StringIO
 import unittest
+
+from resolve import resolve
 
 class TestClass(unittest.TestCase):
     def assertIO(self, input, output):
@@ -20,14 +17,19 @@ class TestClass(unittest.TestCase):
         print(out)
         print('------------')
         self.assertEqual(out, output)
-    def test_入力例_1(self):
-        input = """2 3 9"""
-        output = """No"""
-        self.assertIO(input, output)
-    def test_入力例_2(self):
-        input = """1 1 5"""
-        output = """Yes"""
+
+    def test_from_io_txt(self):
+
+        file_path = __file__.rsplit('/',1)[0]
+
+        with open(file_path + '/input.txt') as f:
+            input = f.read()
+
+        with open(file_path + '/output.txt') as g:
+            output = g.read()
+
         self.assertIO(input, output)
 
+
 if __name__ == "__main__":
-    unittest.main()W
+    unittest.main()

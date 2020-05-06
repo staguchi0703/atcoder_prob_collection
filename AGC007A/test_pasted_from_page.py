@@ -21,13 +21,30 @@ class TestClass(unittest.TestCase):
         print('------------')
         self.assertEqual(out, output)
     def test_入力例_1(self):
-        input = """2 3 9"""
-        output = """No"""
+        input = """4 5
+##...
+.##..
+..##.
+...##"""
+        output = """Possible"""
         self.assertIO(input, output)
     def test_入力例_2(self):
-        input = """1 1 5"""
-        output = """Yes"""
+        input = """5 3
+###
+..#
+###
+#..
+###"""
+        output = """Impossible"""
+        self.assertIO(input, output)
+    def test_入力例_3(self):
+        input = """4 5
+##...
+.###.
+.###.
+...##"""
+        output = """Impossible"""
         self.assertIO(input, output)
 
 if __name__ == "__main__":
-    unittest.main()W
+    unittest.main()
